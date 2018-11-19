@@ -1,0 +1,68 @@
+/* pages/home/home.wxss */
+.slider,
+.slider>swiper,
+.slider image{
+  width:97%;
+  height:350rpx;
+  margin:0 auto;
+}
+.slider image{
+  display:block;
+  margin:0 auto;
+  width:98%;
+  height:95%;
+  border-radius:.5rem;
+  box-shadow:0 5rpx 5rpx 5rpx #ccc;
+}
+/*公告*/
+.notice{
+  font-size:14px;
+  line-height:50rpx;
+  width:95%;
+  margin:10rpx auto;
+}
+.notice>image{
+  width:30rpx;
+  height:30rpx;
+  margin-top:-10rpx;
+  vertical-align:middle;
+  margin-right:10rpx;
+}
+.notice>text{
+  font-weight:bold;
+}
+.notice>navigator{
+  color:rgb(69, 151, 228);
+}
+.notice>navigator:nth-child(4){
+  float: right;
+  color:#aaa;
+}
+/*搜索框*/
+.hseek{
+  display:block;
+  background:#eee;
+  height:80rpx;
+  padding:15rpx 0;
+  box-sizing: border-box;
+}
+.hseek>view{
+  background:#fff;
+  width:95%;
+  height:50rpx;
+  border-radius:5rpx;
+  margin:0 auto;
+  text-align: center;
+  font-size:13px;
+  line-height:50rpx;
+  color:#ccc;
+}
+.hseek>view>image{
+  display:inline-block;
+  padding-bottom:5rpx;
+  width:35rpx;
+  height:35rpx;
+  vertical-align:middle;
+}
+
+

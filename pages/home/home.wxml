@@ -1,0 +1,31 @@
+<!--pages/home/home.wxml-->
+<!-- 轮播 -->
+<view class="slider">
+  <swiper autoplay interval="1000" indicator-dots>
+    <block wx:for="{{swiper}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<!-- 公告 -->
+<view class="notice">
+  <image src="http://192.168.43.77:1997/app/icon_horn.png"></image>
+  <text>最新公告：</text>
+  <navigator href="">租号玩聊天系统开放啦！</navigator>
+  <navigator href="">更多>></navigator>
+</view>
+<!-- 搜索 -->
+<view class="hseek">
+  <view><image src="http://192.168.43.77:1997/app/搜索.png"></image>搜索</view>
+</view>
+<!-- 热门游戏 -->
+<view>
+  <view></view>
+  <view>
+    <image></image>
+    <view></view>
+  </view>
+</view>
+<!-- 左右滑动 -->
