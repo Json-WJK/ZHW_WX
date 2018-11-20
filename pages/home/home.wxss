@@ -65,4 +65,96 @@
   vertical-align:middle;
 }
 
+/*hot热门游戏*/
+.hot{
+  font-size:15px;
+  line-height:80rpx;
+  margin:0 auto;
+  width:95%;
+  font-weight:bold;
+}
+.hot>view>text{
+  color:#ffd005;
+  float: right;
+  height:100%;
+}
+.hot>view>image{
+  height:35rpx;
+  width:25rpx;
+  vertical-align:middle;
+  margin-top:-5rpx;
+  display:inline-block;
+}
+.hot>view:nth-child(1){
+  height:80rpx;
+}
+.hot>view:nth-child(2){
+  display: flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+}
+.hot>view:nth-child(2)>blcok{
+  width:23%;
+  height:250rpx;
+}
+.hot>view:nth-child(2)>blcok>image{
+  width:100%;
+  height:70%;
+  border-radius:5px;
+  box-shadow:0 2px 2px 2px #aaa;
+}
+.hot>view:nth-child(2)>blcok>view{
+  line-height:30rpx;
+  height:30rpx;
+  color:#666;
+  white-space:normal;
+  overflow:hidden;
+  font-weight: normal;
+  text-align:center;
+}
 
+/*free免费专区*/
+.free{
+  font-size:15px;
+  line-height:80rpx;
+  margin:20rpx auto;
+  width:95%;
+  font-weight:bold;
+}
+.free>view>text{
+  color:#ffd005;
+  float: right;
+  height:100%;
+}
+.free>view>image{
+  height:35rpx;
+  width:25rpx;
+  vertical-align:middle;
+  margin-top:-5rpx;
+}
+.free>view:nth-child(1){
+  height:80rpx;
+}
+/*免费专区的左右滑动图片*/
+.free>view:nth-child(2){
+  width:100%;
+  overflow-x:scroll;
+  height:230rpx;
+}
+.free>view:nth-child(2)::-webkit-scrollbar {display:none}
+.free>view:nth-child(2)>view{
+  height:80rpx;
+  width:350%;
+  display:flex;
+  justify-content: space-around;
+}
+.free>view:nth-child(2)>view>blcok{
+  width:7.5%;
+}
+.free>view:nth-child(2)>view>blcok>image{
+  display:inline-block;
+  width:100%;
+  height:210rpx;
+  border-radius:5px;
+  box-shadow:0 2px 2px 2px #aaa;
+}

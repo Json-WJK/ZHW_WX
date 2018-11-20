@@ -1,0 +1,134 @@
+/* pages/select/select.wxss */
+/*搜索框*/
+.seek{
+  width:95%;
+  margin:0 auto;
+}
+.seek>input{
+  display:inline-block;
+  width:80%;
+  background:#eee;
+  border-radius:5px;
+  vertical-align:middle;
+  padding:0 20rpx;
+  box-sizing:border-box;
+  font-size:14px;
+}
+.seek>text{
+  font-size:13px;
+  color:rgb(69, 151, 228);
+  width:20%;
+  text-align:center;
+}
+
+/*游戏分类选择*/
+.ify{
+  display:flex;
+  border-bottom:1px solid #eee;
+}
+.ify>view{
+  width:33%;
+  text-align:center;
+  font-size:14px;
+  height:80rpx;
+  line-height:80rpx;
+}
+.ify>view>image{
+  width:25rpx;
+  height:25rpx;
+  vertical-align:middle;
+  float:right;
+  margin:30rpx 20rpx 0 0;
+}
+
+/*商品列表*/
+.select{
+  height:230rpx;
+  font-size:14px;
+}
+/*每一个商品*/
+.select>view{
+  display:flex;
+  justify-content:space-around;
+  height:100%;
+  padding:15rpx 10rpx;
+  border-bottom:1px solid #eee;
+}
+/*图片*/
+.select>view>.s_img{
+  width:25%;
+  height:100%;
+  padding:15rpx 0;
+}
+.select>view>.s_img>image{
+  display: block;
+  margin:0 auto;
+  width:100%;
+  height:80%;
+}
+/*介绍*/
+.select>view>.s_details{
+  width:50%;
+}
+.select>view>.s_details>view:nth-child(1){
+  width:100%;
+  color:#555;
+  overflow: hidden;
+  height:80rpx;
+  text-overflow:ellipsis;
+}
+.select>view>.s_details>text{
+  border:1px solid #ff6868;
+  color:#ff6868;
+  border-radius:5px;
+  padding:1px 5px;
+  font-size:11px;
+  margin:10rpx 0;
+}
+.select>view>.s_details>view:nth-child(4){
+  width:100%;
+  font-size:12px;
+  color:#ddd;
+  margin-bottom:10rpx;
+}
+.select>view>.s_details>view:nth-child(5){
+  display: inline-block;
+  color:#fff;
+  background:#ddd;
+  padding:5rpx 15rpx;
+  font-size:12px;
+}
+/*价格*/
+.select>view>.s_price{
+  width:20%;
+  text-align:right;
+}
+.select>view>.s_price>view:nth-child(1){
+  width:100%;
+  margin-bottom:10rpx;
+  color:#ff6868;
+  font-weight:bold;
+}
+.select>view>.s_price>text:nth-child(2){
+  width:100%;
+  color:#ddd;
+  margin-bottom:100rpx;
+}
+.select>view>.s_price>view:nth-child(3){
+  width:100%;
+  color:#fff;
+}
+.select>view>.s_price>view:nth-child(3)>text{
+  padding:0 5rpx;
+  margin-left:2rpx;
+  border-radius:3px;
+}
+.select>view>.s_price>view:nth-child(3)>text:nth-child(1){
+  background:#ff782e;
+}
+.select>view>.s_price>view:nth-child(3)>text:nth-child(2){
+  background:#ffca00;
+}
+.select>view>.s_price>view:nth-child(3)>text:nth-child(3){
+  background:#23bbff;
+}

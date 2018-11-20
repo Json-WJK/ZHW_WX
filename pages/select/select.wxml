@@ -1,0 +1,47 @@
+<!--pages/select/select.wxml-->
+<!-- 搜索框 -->
+<view>
+  <view class="seek">
+    <input type="text" placeholder="输入关键字" bindinput="val"  bindconfirm="sseek"></input><text bindtap="sseek">搜索</text>
+  </view>
+</view>
+<!-- 分类选择 -->
+<view class="ify">
+  <view>
+  综合
+    <image src="http://192.168.43.77:1997/app/上箭头.png"></image>
+  </view>
+  <view>
+  游戏
+    <image src="http://192.168.43.77:1997/app/上箭头.png"></image>
+  </view>
+  <view>
+  状态
+    <image src="http://192.168.43.77:1997/app/上箭头.png"></image>
+  </view>
+</view>
+<!-- 商品列表 -->
+<view class="select">
+  <view wx:for="{{select}}" wx:key="item.game_id">
+    <view class="s_img">
+      <image src="{{imgs[index]}}" lazy-load mode="aspectFill"></image>
+    </view>
+    <view class="s_details">
+      <view>{{item.game_describe}}</view>
+      <text>{{item.game_starting}}小时起租</text><text>押金5.00元</text>
+      <view>{{item.game_number}}次交易共36小时</view>
+      <view>
+        <text>{{item.game_server}}</text>
+      </view>
+    </view>
+    <view class="s_price">
+      <view>￥{{item.game_prices}}</view>
+      <text>/小时</text>
+      <view>
+        <text>商</text>
+        <text>陪</text>
+        <text>顶</text>
+      </view>
+    </view>
+  </view>
+</view>

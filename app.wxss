@@ -9,5 +9,9 @@
   box-sizing: border-box;
 } 
 navigator{
-  display:inline;
+  display:inline-block;
+  color:rgb(69, 151, 228);
+}
+text{
+  display:inline-block;
 }
