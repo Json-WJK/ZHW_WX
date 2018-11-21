@@ -8,10 +8,19 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+page{
+  background:rgb(245,245,245);
+}
 navigator{
   display:inline-block;
   color:rgb(69, 151, 228);
 }
 text{
   display:inline-block;
+}
+/*灰色间隔分割线*/
+.parting{
+  height:25rpx;
+  width:100%;
+  background:rgb(245,245,245);
 }

@@ -1,0 +1,102 @@
+<!--pages/detail/detail.wxml-->
+<!-- 商品顶部详情 -->
+<view class="detail">
+  <view class="title">
+    <view class="t_img">
+      <image src="{{img}}"></image>
+    </view>
+    <view class="t_dr">
+      <view>{{list.details_name}}</view>
+      <view>
+      此账号号主已经开启到时不下线功能，直到下一位租客租用时才下线 
+      </view>
+      <view>
+        <view><text>￥{{list.hour}}</text><text>/小时</text></view>
+        <view><text>{{list.adds}}次交易共{{list.duration}}小时</text></view>
+        <view><text>商</text><text>陪</text></view>
+      </view>
+    </view>
+  </view>
+  <!-- 租用方式介绍 -->
+  <view class="ify">
+    <view class="ifys" wx:for="{{ify}}" wx:key="{{index}}">
+      <view>{{ify[index]}}</view>
+      <view>{{ify_hire[index]}}元</view>
+    </view>
+  </view>
+  <!-- ul介绍（状态，条件....） -->
+  <view class="ul">
+    <view>租号状态
+      <text>待租</text>
+    </view>
+    <view>游戏区服
+      <text>{{list.game_names}}</text>
+    </view>
+    <view>租号条件
+      <text>2小时起租</text>
+      <text>免押金</text>
+    </view>
+    <view>可租时段与时长
+      <text>0:00-24:00;168(小时)</text>
+    </view>
+    <view>上号方式
+      <text>上号器上号</text>
+    </view>
+  </view>
+  
+  <!-- 灰色间隔 -->
+  <view class="parting"></view>
+
+  <!-- 账号信息 -->
+  <view class="message_header">账号信息</view>
+  <view class="message">
+    <view>角色：<text>{{list.game_name}}</text></view>
+    <view>等级/段位：<text>30</text></view>
+    <view>皮肤：<text>147</text></view>
+    <view>段位框：<text>无框</text></view>
+    <view>英雄：<text>android</text></view>
+    <view>符文：<text>无</text></view>
+    <view>最短租期<text>2</text></view>
+    <view>可租时间段<text>0:00-24:00</text></view>
+    <view>押金：<text>{{list.hire}}元</text></view>
+    <view>排位赛：<text>不允许</text></view>
+  </view>
+  
+  <!-- 账号描述  -->
+  <view class="describe">
+    <view>账号描述</view>
+    <view class="{{isunfold?'describe_unfold':'describe_nounfold'}}">科学大爆炸已经买了 【搜索童话，更多极品号】不准挂机，送人头，骂人等掉信誉积分的行为，到时间打完一局自觉下号，否则拉黑。另外可能禁言不退款。最后禁止开挂和美化包，一旦封号，公安局报案，不夸张。当然希望买家好好玩游戏，祝游戏愉快！
+    </view>
+    <view bindtap="unfold" class="{{isunfold?'unfold_hidden':''}}">展开</view>
+  </view>
+  <!-- 灰色间隔 -->
+  <view class="parting"></view>
+  <!-- 租客评价 -->
+  <view  class="appraises">
+    <view>租客评价（1）</view>
+    <!-- 由此处循环 -->
+    <view class="appraise">
+      <view class="appraise_user">
+        <image src="http://192.168.43.77:1997/app/default1.png"></image>
+        <view>
+          <view>撒大</view>
+          <view>2018-08-17 23:30:40</view>
+        </view>
+      </view>
+      <view class="content">
+        6666666666666666666666666666666666
+      </view>
+    </view>
+    <button class="all">查看全部</button>
+  </view>
+  
+  <!-- 底部收藏与下单 -->
+  <view class="d_bottom">
+    <view class="collect">
+      <image src="http://192.168.43.77:1997/app/icon_collection.png"></image>
+      <text>收藏</text>
+    </view>
+    <view class="share">分享给好友</view>
+    <view class="order" bindtap="order">我要租</view>
+  </view>
+</view>

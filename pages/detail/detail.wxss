@@ -1,0 +1,307 @@
+/* pages/detail/detail.wxss */
+/*灰色间隔分割线*/
+.parting{
+  height:25rpx;
+  width:100%;
+  background:rgb(245,245,245);
+}
+.detail{
+  font-size:14px;
+  background:#fff;
+}
+
+/*顶部标题*/
+.title{
+  display:flex;
+  justify-content:space-between;
+  box-sizing: border-box;
+  padding:10rpx 20rpx;
+}
+/*左侧图片*/
+.title>.t_img{
+  width:25%;
+}
+.title>.t_img>image{
+  width:100%;
+  height:200rpx;
+  vertical-align:middle;
+}
+/*右侧介绍*/
+.title>.t_dr{
+  width:73%;
+  font-size:16px;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+}
+/*第一行*/
+.title>.t_dr>view:nth-child(1){
+  width:96%;
+  font-size:15px;
+}
+/*第二行*/
+.title>.t_dr>view:nth-child(2){
+  width:99%;
+  font-size:12px;
+  color:#ff6868;
+}
+/*第三行*/
+.title>.t_dr>view:nth-child(3){
+  width:100%;
+  font-size:16px;
+  display:flex;
+  justify-content:space-between;
+  color:#555;
+  line-height:30rpx;
+}
+.title>.t_dr>view:nth-child(3)>view:nth-child(1){
+  color:#e91010;
+  font-weight:bold;
+}
+.title>.t_dr>view:nth-child(3)>view:nth-child(1)>text:nth-child(2){
+  color:#555;
+  font-size:12px;
+  line-height:15rpx;
+  font-weight:normal;
+}
+.title>.t_dr>view:nth-child(3)>view:nth-child(2){
+  font-size:12px;
+  padding:5rpx 0;
+  box-sizing: border-box;
+}
+.title>.t_dr>view:nth-child(3)>view:nth-child(3){
+  font-size:12px;
+  margin-top:5rpx;
+}
+.title>.t_dr>view:nth-child(3)>view:nth-child(3)>text{
+  padding:0 5rpx;
+  margin-left:2rpx;
+  border-radius:3px;
+  color:#fff;
+}
+.title>.t_dr>view:nth-child(3)>view:nth-child(3)>text:nth-child(1){
+  background:#ff782e;
+}
+.title>.t_dr>view:nth-child(3)>view:nth-child(3)>text:nth-child(2){
+  background:#ffca00;
+}
+
+/*租号方式*/
+.ify{
+  display:flex;
+  background:rgb(245,245,245);
+  box-sizing: border-box;
+  padding:20rpx;
+}
+.ify>.ifys{
+  width:25%;
+  text-align:center;
+  box-sizing:border-box;
+  border-top:1px solid #ffca00;
+  border-bottom:1px solid #eee;
+}
+.ify>.ifys:not(:nth-child(1)){
+  border-left:1px solid #eee;
+}
+.ify>.ifys>view{
+  color:#555;
+  font-size:14px;
+  height:70rpx;
+  line-height:70rpx;
+}
+.ify>.ifys>view:nth-child(1){
+  box-sizing:border-box;
+  background:#fff;
+}
+.ify>.ifys>view:nth-child(2){
+  box-sizing:border-box;
+  background: rgb(245,245,245);
+}
+
+/*ul*/
+.ul{
+  
+}
+.ul>view{
+  height:80rpx;
+  line-height:80rpx;
+  font-size:12px;
+  padding:0 20rpx;
+}
+.ul>view:not(:nth-child(1)){
+  border-top:1px solid #eee;
+}
+.ul>view>text{
+  margin-left:15rpx;
+}
+.ul>view:nth-child(1)>text{
+  display:inline;
+  color:#fff;
+  background:#ffca00;
+  padding:5rpx 15rpx;
+  border-radius: 30rpx;
+}
+.ul>view:nth-child(2)>text{
+  display:inline;
+  background:#ddd;
+  padding:5rpx 15rpx;
+}
+.ul>view:nth-child(3)>text{
+  display:inline;
+  color:#e91010;
+  border:1px solid #e91010;
+  padding:5rpx 15rpx;
+  border-radius:5rpx;
+}
+.ul>view:nth-child(4)>text{
+  color:#999;
+}
+.ul>view:nth-child(5)>text{
+  color:#999;
+}
+
+/*账号信息*/
+.message_header{
+  color:#666;
+  font-size:14px;
+  padding:20rpx 0 20rpx 20rpx;
+}
+.message{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  box-sizing:border-box;
+  padding:0 15rpx;
+}
+.message>view{
+  width:50%;
+  box-sizing: border-box;
+  padding:20rpx 0 20rpx 20rpx;
+  color:#666;
+  font-size:14px;
+  border:1px solid #eee;
+}
+.message>view:nth-child(even){
+  border-left:none;
+}
+.message>view:not(:nth-child(9)){
+  border-bottom:none;
+}
+.message>view:nth-child(10){
+  border-bottom:1px solid #eee;
+}
+.message>view>text{
+  color:#000;
+}
+
+/* 账号描述 */
+.describe{
+  color:#999;
+  padding:50rpx 15rpx;
+}
+.describe>view:nth-child(1){
+  color:#333;
+}
+.describe_nounfold{
+  overflow:hidden !important;
+  line-height:30rpx;
+  height:60rpx;
+  text-overflow:ellipsis;
+}
+.describe>view:nth-child(3){
+  width:100%;
+  text-align: right;
+  color:#0f6ff7
+}
+.describe_unfold{
+  height:none !important;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.unfold_hidden{
+  display:none !important;
+}
+
+/*用户评价*/
+.appraises{
+  box-sizing: border-box;
+  padding:30rpx 20rpx;
+  color:#555;
+  margin-bottom:100rpx;
+}
+.appraise{
+  margin:20rpx 0;
+}
+.appraise_user{
+  display:flex;
+  box-sizing: border-box;
+  padding:20rpx 0;
+  color:#999;
+  font-size:13px;
+  line-height:40rpx;
+}
+.appraise_user>image{
+  width:80rpx;
+  height:80rpx;
+  vertical-align:middle;
+  padding:0 20rpx 0 0;
+}
+/*查看更多*/
+.appraises>button{
+  width:25%;
+  height:50rpx;
+  color:#ffca00;
+  line-height:50rpx;
+  margin:0 auot;
+  background:none;
+  border:1px solid #ffca00;
+  font-size:13px;
+  border-radius:15px;
+}
+
+/*收藏、分享与下单*/
+.d_bottom{
+  width:100%;
+  display: flex;
+  height:100rpx;
+  position:fixed;
+  bottom:0;
+}
+/*收藏*/
+.collect{
+  width:20%;
+  text-align: center;
+  height:100%;
+  box-sizing: border-box;
+  padding:15rpx 0;
+  background:#fff;
+}
+.collect>image{
+  width:40rpx;
+  height:35rpx;
+}
+.collect>text{
+  display:block;
+  width:100%;
+  font-size:12px;
+  color:#999;
+}
+
+/*分享*/
+.share{
+  width:40%;
+  background:#45c059;
+  height:100%;
+  line-height:100rpx;
+  text-align: center;
+  color:#fff;
+}
+/*我要租*/
+.order{
+  width:40%;
+  background:#ffca05;
+  height:100%;
+  line-height:100rpx;
+  text-align: center;
+  color:#fff;
+}

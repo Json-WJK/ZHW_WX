@@ -1,51 +1,53 @@
 <!--pages/home/home.wxml-->
-<!-- 轮播 -->
-<view class="slider">
-  <swiper autoplay interval="1000" indicator-dots>
-    <block wx:for="{{swiper}}" wx:key="*this">
-      <swiper-item>
-        <image src="{{item}}" lazy-load mode="aspectFill"></image>
-      </swiper-item>
-    </block>
-  </swiper>
-</view>
-<!-- 公告 -->
-<view class="notice">
-  <image src="http://192.168.43.77:1997/app/icon_horn.png" lazy-load mode="aspectFill"></image>
-  <text>最新公告：</text>
-  <navigator href="">租号玩聊天系统开放啦！</navigator>
-  <navigator href="">更多>></navigator>
-</view>
-<!-- 搜索 -->
-<view class="hseek">
-  <view bindtap='toselect'><image src="http://192.168.43.77:1997/app/搜索.png"></image>搜索</view>
-</view>
-<!-- 热门游戏 -->
-<view class="hot">
-  <view>
-    <image src="http://192.168.43.77:1997/app/icon_hot.png"></image>
-    热门游戏
-    <text bindtap='toselect'>全部游戏</text>
+<view class="home">
+  <!-- 轮播 -->
+  <view class="slider">
+    <swiper autoplay interval="1000" indicator-dots>
+      <block wx:for="{{swiper}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" lazy-load mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
-  <view>
-    <blcok wx:for="{{hot_img}}" wx:key="item.game_family_id">
-      <image src="{{item}}" data-family="{{hots[index].game_family_id}}" bindtap="toselect"></image>
-      <view>{{hot_name[index]}}</view>
-    </blcok>
+  <!-- 公告 -->
+  <view class="notice">
+    <image src="http://192.168.43.77:1997/app/公告小喇叭.png" lazy-load mode="aspectFill"></image>
+    <text>最新公告：</text>
+    <navigator href="">租号玩聊天系统开放啦！</navigator>
+    <navigator href="">更多>></navigator>
   </view>
-</view>
-<!-- 左右滑动 -->
-<view class="free">
-  <view>
-    <image src="http://192.168.43.77:1997/app/experience.png" lazy-load mode="aspectFill"></image>
-    免费体验
-    <text>进入专区</text>
+  <!-- 搜索 -->
+  <view class="hseek">
+    <view bindtap='toselect'><image src="http://192.168.43.77:1997/app/搜索.png"></image>搜索</view>
   </view>
-  <view>
+  <!-- 热门游戏 -->
+  <view class="hot">
     <view>
-      <blcok wx:for="{{hot_img}}" wx:key="item">
-        <image src="{{item}}" lazy-load mode="aspectFill"></image>
+      <image src="http://192.168.43.77:1997/app/icon_hot.png"></image>
+      热门游戏
+      <text bindtap='toselect'>全部游戏</text>
+    </view>
+    <view>
+      <blcok wx:for="{{hot_img}}" wx:key="item.game_family_id">
+        <image src="{{item}}" data-family="{{hots[index].game_family_id}}" bindtap="toselect"></image>
+        <view>{{hot_name[index]}}</view>
       </blcok>
+    </view>
+  </view>
+  <!-- 左右滑动 -->
+  <view class="free">
+    <view>
+      <image src="http://192.168.43.77:1997/app/experience.png" lazy-load mode="aspectFill"></image>
+      免费体验
+      <text>进入专区</text>
+    </view>
+    <view>
+      <view>
+        <blcok wx:for="{{hot_img}}" wx:key="item">
+          <image src="{{item}}" lazy-load mode="aspectFill"></image>
+        </blcok>
+      </view>
     </view>
   </view>
 </view>

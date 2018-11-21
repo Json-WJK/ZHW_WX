@@ -1,4 +1,63 @@
 /* pages/select/select.wxss */
+.select_bg{
+  background:#fff;
+}
+/* 顶部固定 */
+.t_fixed{
+  position: fixed;
+  width:100%;
+  background:#fff;
+}
+.relative{
+  position: relative;
+}
+/*搜索历史记录*/
+.history{
+  visibility: visible;
+  font-size:13px;
+  color:#555;
+  line-height:50rpx;
+  box-sizing: border-box;
+  position: absolute;
+  background:#fff;
+  width:100%;
+  overflow: hidden;
+  transition: .5s;
+  opacity: .95;
+}
+.history>.title{
+  display: block;
+  width:100%;
+  text-align:center;
+}
+.history>.hot{
+   display:flex;
+   justify-content: space-around;
+   margin:10rpx 0;
+}
+.history>.hot>text{
+  width:20%;
+  border:1px solid #eee;
+  border-radius:5px;
+  text-align:center;
+}
+.history>.li{
+  padding:15rpx;
+  border-bottom:1px solid #eee;
+}
+.history>.li>button{
+  float:right;
+  height:50rpx;
+  line-height:50rpx;
+  font-size:12px;
+  color:#555;
+  background:#fff;
+}
+.away{
+  padding:15rpx 0;
+}
+
+
 /*搜索框*/
 .seek{
   width:95%;
@@ -45,6 +104,7 @@
 .select{
   height:230rpx;
   font-size:14px;
+  padding-top:140rpx;
 }
 /*每一个商品*/
 .select>view{
@@ -53,6 +113,7 @@
   height:100%;
   padding:15rpx 10rpx;
   border-bottom:1px solid #eee;
+  background:#fff;
 }
 /*图片*/
 .select>view>.s_img{
@@ -75,6 +136,7 @@
   color:#555;
   overflow: hidden;
   height:80rpx;
+  line-height:40rpx;
   text-overflow:ellipsis;
 }
 .select>view>.s_details>text{
@@ -131,4 +193,14 @@
 }
 .select>view>.s_price>view:nth-child(3)>text:nth-child(3){
   background:#23bbff;
+}
+
+/*到达底部*/
+.isbottom{
+  height:20rpx !important;
+  color:333;
+}
+/*搜索记录显示隐藏*/
+.ishistory{
+  opacity: 0;
 }

@@ -1,4 +1,8 @@
 /* pages/home/home.wxss */
+.home{
+  background:#fff;
+}
+
 .slider,
 .slider>swiper,
 .slider image{
@@ -20,13 +24,15 @@
   line-height:50rpx;
   width:95%;
   margin:10rpx auto;
+  padding-left:10rpx;
+  box-sizing: border-box;
 }
 .notice>image{
   width:30rpx;
   height:30rpx;
   margin-top:-10rpx;
   vertical-align:middle;
-  margin-right:10rpx;
+  margin-right:15rpx;
 }
 .notice>text{
   font-weight:bold;
@@ -118,6 +124,8 @@
   font-size:15px;
   line-height:80rpx;
   margin:20rpx auto;
+  margin-bottom:0rpx;
+  padding-bottom:20rpx;
   width:95%;
   font-weight:bold;
 }

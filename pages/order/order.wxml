@@ -1,0 +1,55 @@
+<!--pages/order/order.wxml-->
+<view class="order">
+  <view class="title">
+    <view class="t_img">
+      <image src="{{img}}"></image>
+    </view>
+    <view class="t_dr">
+      <view>
+      {{list.details_name}}
+      </view>
+      <view>
+      此账号号主已经开启到时不下线功能，直到下一位租客租用时才下线 
+      </view>
+      <view>
+        <view><text></text><text></text></view>
+        <view><text></text></view>
+        <view><text>商</text><text>陪</text></view>
+      </view>
+    </view>
+  </view>
+  <!-- 租用方式介绍 -->
+  <view class="ify">
+    <view class="ifys" wx:for="{{ify}}" wx:key="{{index}}">
+      <view class="{{ifyon==index?'bg_switch':''}}" bindtap="switch" data-index="{{index}}">{{ify[index].title}}</view>
+      <view class="{{ifyon==index?'bg_switch':''}}" bindtap="switch" data-index="{{index}}">{{ify_hire[index]}}元</view>
+    </view>
+  </view>
+  <!-- 可租时段与租赁时长选择 -->
+  <view class="time">
+    <view>可租时段与时长<text>0:00-24:00;168(小时)</text></view>
+    <view class="duration">租赁时长
+      <view class="{{ifyon==0?'':'ify_none'}}"><image src="http://192.168.43.77:1997/app/减.png" bindtap="count" data-count="-1"></image><text>{{time}}</text><image src="http://192.168.43.77:1997/app/加.png" bindtap="count" data-count="1"></image>
+      </view>
+      <view class="{{ifyon==0?'ify_none':''}}">{{ify[ifyon].time}}小时</view>
+    </view>
+    <view>下单后，是从当前时间开始计算与预约时间冲突则不可租赁。</view>
+  </view>
+  <!-- 灰色切割线 -->
+  <view class="parting"></view>
+  <!-- ul -->
+  <view class="ul">
+    <view>红包<text>无可用红包</text></view>
+    <view>租金<text>{{price}}</text></view>
+    <view>押金<text>{{list.hire}}</text></view>
+    <view>(押金会在订单完成24小时内退回至您的租号玩账户)</view>
+    <view> 
+    <radio value="" checked="{{isagree}}" bindtap="agree"/>我已阅读并同意<text>《租号玩服务协议》 </text>
+    </view>
+  </view>
+<!-- 底部 立即下单 -->
+  <view class="affirm">
+    <view>实付总金额<text>￥{{num}}</text></view>
+    <view bindtap="affirm">立即租用</view>
+  </view>
+</view>
