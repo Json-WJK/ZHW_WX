@@ -1,0 +1,176 @@
+/* pages/list/list.wxss */
+/*订单列表*/
+.list{
+  font-size:14px;
+  color:#555;
+}
+
+
+/*顶部*/
+.list>.top{
+  height:60rpx;
+  line-height:60rpx;
+  background:#fff;
+  position:fixed;
+  top:0;
+  width:100%;
+}
+.list>.top>text{
+  width: 16.6%;
+  text-align:center;
+  height:100%;
+  border-bottom: 2px solid #fff;
+}
+.switch{
+  border-bottom:2px solid #ffca00 !important;
+  color:#ffca00 !important;
+}
+/*分割线*/
+.parting{
+  margin-top:50rpx;
+}
+
+/*循环主体*/
+.index{
+  background:#fff;
+  margin:25rpx 0;
+  box-sizing: border-box;
+  padding:0 15rpx;
+  box-shadow: 0 0 1px 1px #eee 1px 1px;
+}
+
+
+/*商品编号与状态*/
+.id{
+  border-bottom:1px solid #eee;
+  padding:30rpx 0;
+}
+.id>text:nth-child(2){
+  float: right;
+
+}
+
+
+/*评价与复制*/
+
+.appraise{
+  padding:30rpx 0;
+  border-top:1px solid #eee;
+}
+.appraise>text{
+  color:#ffca00;
+  font-size:12px;
+}
+.appraise button{
+  display:inline-block;
+  width:18%;
+  height:45rpx;
+  line-height:45rpx;
+  font-size:13px;
+  float:right;
+}
+.appraise button:nth-child(2){
+  background:#ffca00;
+  color:#fff;
+  margin-left:10rpx;
+}
+.appraise button:nth-child(3){
+  background:#ff6868;
+  color:#fff;
+}
+/*进行中订单账号信息*/
+.select{
+  height:230rpx;
+  font-size:14px;
+}
+/*每一个商品*/
+.select>view{
+  display:flex;
+  justify-content:space-around;
+  height:100%;
+  padding:15rpx 10rpx;
+  background:#fff;
+}
+/*图片*/
+.select>view>.s_img{
+  width:25%;
+  height:100%;
+  padding:15rpx 0;
+}
+.select>view>.s_img>image{
+  display: block;
+  margin:0 auto;
+  width:100%;
+  height:80%;
+}
+/*介绍*/
+.select>view>.s_details{
+  width:50%;
+}
+.select>view>.s_details>view:nth-child(1){
+  width:100%;
+  color:#555;
+  overflow: hidden;
+  height:80rpx;
+  line-height:40rpx;
+  text-overflow:ellipsis;
+}
+.select>view>.s_details>text{
+  color:#ff6868;
+  border-radius:5px;
+  padding:1px 5px;
+  font-size:11px;
+  margin:10rpx 0;
+}
+.select>view>.s_details>view:nth-child(4){
+  width:100%;
+  font-size:12px;
+  color:#ddd;
+  margin-bottom:10rpx;
+}
+.select>view>.s_details>view:nth-child(5){
+  display: inline-block;
+  color:#fff;
+  background:#ddd;
+  padding:5rpx 15rpx;
+  font-size:12px;
+}
+/*价格*/
+.select>view>.s_price{
+  width:20%;
+  text-align:right;
+}
+.select>view>.s_price>view:nth-child(1){
+  width:100%;
+  margin-bottom:10rpx;
+  font-weight:bold;
+}
+.select>view>.s_price>text:nth-child(2){
+  width:100%;
+  color:#ddd;
+  margin-bottom:60rpx;
+}
+.select>view>.s_price>view:nth-child(3){
+  width:100%;
+  color:#fff;
+}
+.select>view>.s_price>view:nth-child(3)>text{
+  padding:0 5rpx;
+  margin-left:2rpx;
+  border-radius:3px;
+}
+.select>view>.s_price>view:nth-child(3)>text:nth-child(1){
+  background:#ff782e;
+}
+.select>view>.s_price>view:nth-child(3)>text:nth-child(2){
+  background:#ffca00;
+}
+.select>view>.s_price>view:nth-child(3)>text:nth-child(3){
+  background:#23bbff;
+}
+
+
+
+.ifyblock{
+  display:none;
+}

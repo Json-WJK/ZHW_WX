@@ -1,0 +1,5 @@
+<template name="swiper">
+  <view class="swiper">
+  轮播图
+  </view>
+</template>

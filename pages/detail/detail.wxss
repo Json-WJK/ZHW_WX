@@ -145,6 +145,7 @@
   display:inline;
   background:#ddd;
   padding:5rpx 15rpx;
+  color:#fff;
 }
 .ul>view:nth-child(3)>text{
   display:inline;
@@ -304,4 +305,10 @@
   line-height:100rpx;
   text-align: center;
   color:#fff;
+}
+
+
+/*是否可租切换样式*/
+.nomay{
+  background:#ddd !important;
 }

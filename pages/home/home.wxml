@@ -1,4 +1,5 @@
 <!--pages/home/home.wxml-->
+<!-- <import src="../template/swiper/swiper" /> -->
 <view class="home">
   <!-- 轮播 -->
   <view class="slider">
@@ -45,9 +46,15 @@
     <view>
       <view>
         <blcok wx:for="{{hot_img}}" wx:key="item">
-          <image src="{{item}}" lazy-load mode="aspectFill"></image>
+          <view class="relative">
+            <image src="{{item}}" lazy-load mode="aspectFill"></image> 
+            <text>{{hot_name[index]}}</text> 
+          </view>
         </blcok>
       </view>
     </view>
   </view>
+  <!-- <view>
+    <template is="swiper"/>
+  </view> -->
 </view>

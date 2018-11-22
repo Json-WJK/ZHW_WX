@@ -1,9 +1,13 @@
 // pages/home/home.js
+
 Page({
   /*跳转至商品详情页 并且传参 */
   toselect(event){
     var family=event.target.dataset.family
-    wx.navigateTo({ url: "/pages/select/select?game_family_id="+family}) 
+    wx.reLaunch({
+      url: "/pages/select/select?game_family_id=" + family,
+    })
+    //({ url: "/pages/select/select?game_family_id="+family}) 
   },
   /**
    * 页面的初始数据

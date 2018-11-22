@@ -5,7 +5,16 @@ Page({
     this.setData({isagree:!this.data.isagree})
   },
   switch(e){
-    this.setData({ifyon:e.target.dataset.index})
+    var i = e.target.dataset.index
+    this.setData({ ifyon: i })
+    if(i==0){
+      this.countnum()
+      return
+    }
+    var price=parseFloat(this.data.ify_hire[i]).toFixed(2)
+    var num = (parseFloat(this.data.ify_hire[i]) + parseFloat(this.data.list.hire)).toFixed(2)
+    this.setData({ price})
+    this.setData({ num: num})
   },
   /*加减时长 并且调用计算函数*/
   count(e){

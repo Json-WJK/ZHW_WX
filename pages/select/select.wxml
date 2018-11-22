@@ -22,17 +22,55 @@
     </view>
     <!-- 分类选择 -->
     <view class="ify">
-      <view>
+      <view bindtap="istb" data-text="综合" class="{{istop=='综合'?'f_color':''}}">
       综合
-        <image src="http://192.168.43.77:1997/app/上箭头.png"></image>
+        <image src="{{istop=='综合'?bottom:top}}"></image>
       </view>
-      <view>
+      <view bindtap="istb" data-text="游戏" class="{{istop=='游戏'?'f_color':''}}">
       游戏
-        <image src="http://192.168.43.77:1997/app/上箭头.png"></image>
+        <image src="{{istop=='游戏'?bottom:top}}"></image>
+      </view>
+      <view bindtap="istb" data-text="状态" class="{{istop=='状态'?'f_color':''}}">
+      状态
+        <image src="{{istop=='状态'?bottom:top}}"></image>
+      </view>
+    </view>
+    <!-- 综合下拉列表 -->
+    <view class="pull {{istop=='综合'?'':'img_none'}}">
+      <view>
+        <view wx:for="{{ul}}" wx:key="{{index}}" bindtap="switch_p" data-i="{{index}}" class="{{switch_p==index?'switch_p':''}}">{{item}}</view>
       </view>
       <view>
-      状态
-        <image src="http://192.168.43.77:1997/app/上箭头.png"></image>
+        <view class="{{block_r==true?'block_rs':'data'}}">
+          <view>从高到低</view>
+          <view>从低到高</view>
+        </view>
+        <view class="{{block_r?'img_none':'img_b'}}">
+          <view>
+            <image src="http://192.168.43.77:1997/app/没有信息.png"></image>
+            <view>暂无数据</view>
+          </view>
+        </view>
+      </view>
+    </view>
+     <!-- 游戏下拉列表 -->
+    <view class="pull">
+      <view class="game {{istop=='游戏'?'game_h':''}}" hover-class="none" hover-stop-propagation="false">
+        <text>英雄联盟</text>
+        <text>绝地求生</text>
+        <text>王者荣耀</text>
+        <text>穿越火线</text>
+        <text>反恐精英</text>
+        <text>守望先锋</text>
+        <text>QQ飞车</text>
+        <text>地下城与勇士</text>
+      </view>
+    </view>
+    <!-- 状态下拉列表 -->
+    <view class="pull">
+      <view class="state {{istop=='状态'?'game_h':''}}" hover-class="none" hover-stop-propagation="false">
+        <view>正常</view>
+        <view>免费</view>
       </view>
     </view>
   </view>
@@ -62,6 +100,6 @@
         </view>
       </view>
     </block>
-    <view class="isbottom">{{isbottom?'---------我也是有底线的----------':'---------快马加鞭中----------'}}</view>
+    <view class="isbottom">{{isbottom?'---------我也是有底线的----------':'---------上滑加载更多----------'}}</view>
   </view>
 </view>

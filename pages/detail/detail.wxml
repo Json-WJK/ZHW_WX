@@ -27,7 +27,7 @@
   <!-- ul介绍（状态，条件....） -->
   <view class="ul">
     <view>租号状态
-      <text>待租</text>
+      <text class="{{ismay?'':'nomay'}}">{{ismay?'待租':'出租中'}}</text>
     </view>
     <view>游戏区服
       <text>{{list.game_names}}</text>
@@ -97,6 +97,6 @@
       <text>收藏</text>
     </view>
     <view class="share">分享给好友</view>
-    <view class="order" bindtap="order">我要租</view>
+    <view class="order {{ismay?'':'nomay'}}" bindtap="order">{{ismay?'我要租':'账号出租中'}}</view>
   </view>
 </view>

@@ -23,7 +23,8 @@
   width:100%;
   overflow: hidden;
   transition: .5s;
-  opacity: .95;
+  opacity: 1;
+  z-index: 10;
 }
 .history>.title{
   display: block;
@@ -84,6 +85,7 @@
 .ify{
   display:flex;
   border-bottom:1px solid #eee;
+  position:relative;
 }
 .ify>view{
   width:33%;
@@ -195,6 +197,8 @@
   background:#23bbff;
 }
 
+
+
 /*到达底部*/
 .isbottom{
   height:20rpx !important;
@@ -203,4 +207,126 @@
 /*搜索记录显示隐藏*/
 .ishistory{
   opacity: 0;
+  visibility: hidden;
+}
+/*top切换字体颜色变换*/
+.f_color{
+  color:#ffca00;
+}
+
+/*下拉列表*/
+.pull{
+  position:absolute;
+  top:130rpx;
+  display:flex;
+  justify-content: space-between;
+  background:#fff;
+  width:100%;
+  flex-wrap:wrap;
+  font-size:13px;
+  color:#333;
+  transition:.5s;
+}
+.pull>view:nth-child(1){
+  width:33.3%;
+  text-align:center;
+  line-height:100rpx;
+}
+.pull>view:nth-child(1)>view{
+  background:#F7F7FA;
+  margin:5rpx 0;
+}
+/*右侧*/
+.pull>view:nth-child(2){
+  width:66.6%;
+  
+}
+
+/*控制点击切换样式*/
+.switch_p{
+  background:#fff !important;
+  color:#ffca00 !important;
+}
+/*控制综合点击显示隐藏----右侧*/
+.data{
+  display: none;
+}
+.block_rs{
+  display: block !important;
+  width:100%;
+  line-height:105rpx;
+  box-sizing: border-box;
+  padding-left:10rpx;
+}
+.block_rs>view{
+  display: block !important;
+  width:100%;
+  border-bottom:1px solid #eee;
+  box-sizing: border-box;
+  padding-left:10rpx;
+}
+/***/
+.img_b{
+  position:relative;
+  height:100%;
+  transition:.5s;
+}
+.img_b>view{
+  width:120rpx;
+  position: absolute;
+  margin:auto;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  height:100rpx;
+}
+.img_b>view>image{
+  width:100rpx;
+  height:100rpx;
+}
+.img_none{
+  height:0 !important;
+  overflow: hidden;
+}
+
+/*游戏下拉列表*/
+.game{
+  width:100% !important;
+  display: flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  font-size:13px;
+  overflow:hidden;
+  height:0;
+  color:#FFCD0F;
+  line-height:100rpx;
+  transition:.5s;
+}
+.game>text{
+  width:23%;
+}
+.game_h{
+  height:200rpx !important;
+  
+}
+
+/*状态下拉列表*/
+.state{
+  width:100% !important;
+  font-size:15px;
+  text-align: center;
+  overflow:hidden;
+  height:0;
+  color:#FFCD0F;
+  line-height:100rpx;
+  transition:.5s;
+  z-index: 10;
+}
+.state>view{
+  background:#fff !important;
+}
+.state_h{
+  height:100rpx !important;
+  
 }

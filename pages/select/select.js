@@ -26,7 +26,8 @@ Page({
                 },1500)
                 return
               }
-              this.setData({ select: res.data })
+              this.setData({ select: res.data.slice(0, 20) })
+              this.setData({ selectall: res.data })
               var box = []//图片容器
               var imgs = [] //最终收集图片
               for (var i = 0; i < res.data.length; i++) {
@@ -49,7 +50,8 @@ Page({
           })
         }else{
           console.log(res)
-          this.setData({ select: res.data })
+          this.setData({ select: res.data.slice(0, 20) })
+          this.setData({ selectall: res.data })
           var box = []//图片容器
           var imgs = [] //最终收集图片
           for (var i = 0; i < res.data.length; i++) {
@@ -77,9 +79,21 @@ Page({
   },
   /* 接收参数并前往商品详情页*/
   detail(event){
-    console.log(this.data.ishistory)
-    if(this.data.ishistory) return
-    wx.navigateTo({ url: "/pages/detail/detail?game_id=" + event.currentTarget.dataset.game_id})
+    wx.request({
+      url: 'http://192.168.43.77:1997/search/app_isexist?game_id=' +event.currentTarget.dataset.game_id,
+      success:(res)=>{
+        if (this.data.ishistory) return
+        if(res.data.res==0){
+          wx.showToast({
+            title: '我还没有信息哦！',
+            icon: "none"
+          })
+          return
+        }
+        wx.navigateTo({ url: "/pages/detail/detail?game_id=" + event.currentTarget.dataset.game_id })
+      }
+    })
+    
   },
   /*搜索历史记录显示隐藏事件 */
   history(){
@@ -87,7 +101,26 @@ Page({
       this.setData({ ishistory: !this.data.ishistory })
     },300)
   },
-
+  /*点击下拉列表切换样式*/
+  istb(e){
+    var istop = e.currentTarget.dataset.text
+    if(istop==this.data.istop)
+      this.setData({ istop: null })
+    else
+      this.setData({istop})
+  },
+  /*综合下拉列表切换样式 */
+  switch_p(e){
+    var block_r;
+    var switch_p=e.currentTarget.dataset.i
+    this.setData({switch_p})
+    if (switch_p == 1 || switch_p == 2 || switch_p == 3 || switch_p==4)
+    block_r=true
+    else 
+    block_r=false
+    console.log(block_r)
+    this.setData({block_r})
+  },
   /**
    * 页面的初始数据
    */
@@ -99,11 +132,17 @@ Page({
     ify:[24,9,10,168],
     isbottom:false,//是否到底部
     ifhistory:false,//是否显示搜索历史记录
+    top:"http://192.168.43.77:1997/app/上箭头.png",//上箭头
+    bottom:"http://192.168.43.77:1997/app/下箭头.png",//下箭头
+    istop:null,
+    ul: ["综合", "销量", "价格", "时间", "收藏", "到时不下线", "新手专区"],
+    switch_p:0,//综合菜单点击切换样式
+    block_r:false,//综合右侧下拉
   },
 
   
   selects(id){//全部
-    // if(id!=undefined) return
+    //if(id!=undefined) 
     wx.request({
       url:"http://192.168.43.77:1997/search/app_gamelist",
       success:(res)=>{
@@ -126,7 +165,14 @@ Page({
     wx.request({
       url: "http://192.168.43.77:1997/search/app_classifylist?game_family_id="+id,
       success: (res) => {
-        if(res.data.length==0) return
+        if(res.data.length==0){
+          wx.showToast({
+            title: "为您推荐",
+            icon: "none",
+            duration: 1000
+          })
+          return
+        }
         this.setData({ select: res.data.slice(0, 20) })
         this.setData({ selectall: res.data })
         var box = []//图片容器
@@ -149,7 +195,7 @@ Page({
     this.selects(options.game_family_id)
     setTimeout(() => {
       this.family(options.game_family_id)
-    }, 500)
+    }, 300)
     wx.showToast({
       title: "玩命加载中....",
       icon: "loading",
