@@ -1,9 +1,48 @@
 // pages/select/select.js
 Page({
   /*搜索 */
-  sseek(){
-    var kwords=this.data.value.replace(/^\s+|s+$/g,"")
+  sseek(e){
+    //非空验证
+    console.log(e)
+    var kwords = this.data.value.replace(/^\s+|s+$/g, "")
+    //用户点击历史记录时判定 是删除还是搜索
+    if(e.target.dataset.text!=undefined){
+      /*如果用户点击搜索记录进行搜索  则执行b方案 */
+      if (e.currentTarget.dataset.text != undefined)
+        kwords = e.currentTarget.dataset.text
+    }
+    /*如果用户点击了删除 结束函数*/
+    if (e.target.dataset.index != undefined)
+    return
+    console.log(kwords)
     if (kwords=="") return
+    var text=[];
+          /*获取历史记录 */
+    wx.getStorage({
+      key: 'seek',
+      success:(res)=>{
+      },
+      complete:(res)=>{
+        if(!res.data) res.data=[]//如果storage里没有seek，则创建一个数组
+        for (var item of res.data){
+          if(item==kwords) return//如果记录中有该记录  return
+        }
+        res.data.unshift(kwords);
+        text=res.data
+        console.log(text)
+    /*修改 */
+        wx.setStorage({
+          key: 'seek',
+          data: text,
+          success:(res)=>{  
+          }
+        })
+      }
+    })
+    setTimeout(() => {
+      this.setData({ historys: text })
+    }, 500)
+    
     wx.request({
       url: "http://192.168.43.77:1997/search/app_seek?kwords=" + kwords,
       success:(res)=>{
@@ -11,7 +50,6 @@ Page({
           wx.request({
             url: "http://192.168.43.77:1997/search/app_seeks?kwords=" + kwords,
             success: (res) => {
-              console.log(2)
               if(res.data.result == 0){
                 wx.showToast({
                   title:"玩命查找中....",
@@ -95,11 +133,47 @@ Page({
     })
     
   },
-  /*搜索历史记录显示隐藏事件 */
+  /*搜索历史记录显示隐藏事件 焦点事件*/
   history(){
     setTimeout(()=>{
       this.setData({ ishistory: !this.data.ishistory })
     },300)
+    /*获取历史记录 */
+    wx.getStorage({
+      key: 'seek',
+      success: (res) => {
+        this.setData({ historys: res.data })
+      },
+    })
+    
+  },
+  /*清空与删除单个历史记录 */
+  deleteall(e){
+    var i = e.currentTarget.dataset.index//删除元素下标
+    var box=[]
+    if(i==undefined)
+    wx.removeStorage({
+      key: 'seek',
+      success: (res)=> {
+        this.setData({historys:[]})
+      },
+    })
+    else if(i!=undefined){
+      wx.getStorage({
+        key: 'seek',
+        success: (res)=> {
+          box=res.data
+          box.splice(i,1)
+          wx.setStorage({
+            key: 'seek',
+            data: box,
+          })
+        },
+      })
+    }
+    wx.showToast({
+      title: '清除成功',
+    })
   },
   /*点击下拉列表切换样式*/
   istb(e){
@@ -131,7 +205,8 @@ Page({
     value:"",
     ify:[24,9,10,168],
     isbottom:false,//是否到底部
-    ifhistory:false,//是否显示搜索历史记录
+    ishistory:false,//是否显示搜索历史记录
+    historys:[],
     top:"http://192.168.43.77:1997/app/上箭头.png",//上箭头
     bottom:"http://192.168.43.77:1997/app/下箭头.png",//下箭头
     istop:null,
@@ -201,6 +276,7 @@ Page({
       icon: "loading",
       duration:1000
     })
+    console.log(getApp().globalData.uname)
   },
 
   /**
@@ -240,7 +316,6 @@ Page({
 
   /*上拉加载更多 */
   loading() {
-    console.log(123)
     var all=this.data.selectall
     var select=this.data.select
     for(var i=0;i<5;i++){
@@ -250,6 +325,12 @@ Page({
       }
       select.push(all[select.length])
     }
+    wx.showLoading({
+      title: '加载中...',
+    })
+    setTimeout(()=>{
+      wx.hideLoading()
+    },500)
     this.setData({select})
   },
   /**

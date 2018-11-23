@@ -1,2 +1,19 @@
 <!--pages/user/user.wxml-->
+<!--index.wxml-->
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
 
+
+
+<view class="video">
+  <video src="http://192.168.43.77:1997/video/1539860980851306f48a1a955d.mp4_last.mp4" autoplay loop='true' controls=''></video>
+</view>
+<button open-type="share">分享</button>

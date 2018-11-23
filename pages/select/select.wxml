@@ -16,8 +16,8 @@
           <text>王者荣耀</text>
         </view>
         <text class="title">搜索历史</text>
-        <view class="li"><text>吃鸡</text><button>删除</button></view>
-        <text class="title away">清空历史记录</text>
+        <view class="li {{index>=5?'data':''}}" wx:for="{{historys}}" wx:key="{{index}}" bindtap="sseek" data-text="{{item}}"><text>{{item}}</text><button bindtap="deleteall" data-index="{{index}}">删除</button></view>
+        <text class="title away" bindtap="deleteall">清空历史记录</text>
       </view>
     </view>
     <!-- 分类选择 -->
@@ -101,5 +101,19 @@
       </view>
     </block>
     <view class="isbottom">{{isbottom?'---------我也是有底线的----------':'---------上滑加载更多----------'}}</view>
+  </view>
+</view>
+
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
   </view>
 </view>

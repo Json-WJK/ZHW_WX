@@ -96,7 +96,7 @@
       <image src="http://192.168.43.77:1997/app/icon_collection.png"></image>
       <text>收藏</text>
     </view>
-    <view class="share">分享给好友</view>
+    <button class="share" open-type="share">分享给好友</button>
     <view class="order {{ismay?'':'nomay'}}" bindtap="order">{{ismay?'我要租':'账号出租中'}}</view>
   </view>
 </view>

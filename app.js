@@ -10,6 +10,16 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        var code = res.code;
+        if (code) {
+          wx.request({
+            url: 'http://127.0.0.1:1997/wx/onlogin',
+            data: { code },
+            success:(res)=>{
+              this.globalData.uname = res.data.uname
+            }
+          })
+        }
       }
     })
     // 获取用户信息
@@ -21,6 +31,8 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
+              console.log(this.globalData.userInfo)
+              console.log(1)
 
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
@@ -34,6 +46,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    uname:null,
   }
 })

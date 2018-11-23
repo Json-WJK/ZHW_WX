@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/select/select",
     "pages/home/home",
+    "pages/select/select",
+    
     "pages/index/index",
     "pages/logs/logs",
     
@@ -40,7 +41,7 @@
         "selectedIconPath": "pages/tabBer/app_1.png"
       },
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/user/user",
         "text": "我的",
         "iconPath": "pages/tabBer/my_0.png",
         "selectedIconPath": "pages/tabBer/my_1.png"

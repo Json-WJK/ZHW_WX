@@ -292,10 +292,13 @@
 .share{
   width:40%;
   background:#45c059;
+  font-size:14px;
   height:100%;
   line-height:100rpx;
   text-align: center;
   color:#fff;
+  border-radius:0;
+  border: none;
 }
 /*我要租*/
 .order{
