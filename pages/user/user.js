@@ -14,6 +14,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  /* */
   selectVideo(){
     wx.chooseVideo({
       sourceType:["album","camera"],

@@ -7,92 +7,92 @@
     <text class="{{i==index?'switch':''}}" bindtap="switch" wx:for="{{ify}}" wx:key="{{index}}" data-i="{{index}}">{{item}}</text>
   </view>
   <view class="parting"></view>
-  <view class="index {{i==0?'':'ifyblock'}}">
-    <!-- 编号 -->
-    <view class="id">
-      <text>编号:107613351</text>
-      <text>进行中</text>
-    </view>
-    <!-- 订单账号信息 -->
-    <view style="">
-      <view class="select">
-        <!-- <block wx:for="{{select}}" wx:key="item.game_id"> -->
-          <view data-game_id="{{item.game_id}}" bindtap="detail">
-            <view class="s_img">
-              <image src="{{imgs[index]}}" lazy-load mode="aspectFill"></image>
-            </view>
-            <view class="s_details">
-              <view>{{item.game_describe}}啊实打实大撒大所大所多撒奥所大所大所多撒多撒撒大撒大</view>
-              <text></text>
-              <view>角色名：给我五杀{{item.game_number}}</view>
-              <view>
-                <text>{{item.game_server}}英雄联盟/电信/巨神峰</text>
+  <block wx:for="{{account}}" wx:key="item.game_id" class="list_item">
+    <view class="index {{i==0?'':'ifyblock'}}">
+      <view class="id">
+        <text>编号:107613351</text>
+        <text>进行中</text>
+      </view>
+      <!-- 订单账号信息 -->
+      <view>
+        <view class="select">
+            <view data-game_id="{{item.game_id}}" bindtap="detail">
+              <view class="s_img">
+                <image src="{{imgs[index]}}" lazy-load mode="aspectFill"></image>
+              </view>
+              <view class="s_details">
+                <view>{{item.game_describe}}</view>
+                <text></text>
+                <view>{{name[index].game_name}}</view>
+                <view>
+                  <text>{{item.game_server}}</text>
+                </view>
+              </view>
+              <view class="s_price">
+                <view>￥{{item.game_prices}}</view>
+                <text>/小时</text>
+                <view>
+                  <text>商</text>
+                  <text>陪</text>
+                  <text>顶</text>
+                </view>
               </view>
             </view>
-            <view class="s_price">
-              <view>￥1.00{{item.game_prices}}</view>
-              <text>/小时</text>
-              <view>
-                <text>商</text>
-                <text>陪</text>
-                <text>顶</text>
-              </view>
-            </view>
-          </view>
-        <!-- </block> -->
+          
+        </view>
+      </view>
+      <!-- 解锁码及评价 -->
+      <view class="appraise">
+          解锁码:
+          <text>b0cefe517f366e611937724</text>
+          <button>复制</button>
+          <button>评价</button>
       </view>
     </view>
-    <!-- 解锁码及评价 -->
-    <view class="appraise">
-        解锁码:
-        <text>b0cefe517f366e611937724</text>
-        <button>复制</button>
-        <button>评价</button>
-    </view>
-  </view>
+  </block>
   
   <!-- 完成的订单信息 -->
-  <view class="index {{i==4?'':'ifyblock'}}">
-    <!-- 编号 -->
-    <view class="id">
-      <text>编号:146823351</text>
-      <text>进行中</text>
-    </view>
-    <!-- 订单账号信息 -->
-    <view style="">
-      <view class="select">
-        <!-- <block wx:for="{{select}}" wx:key="item.game_id"> -->
-          <view data-game_id="{{item.game_id}}" bindtap="detail">
-            <view class="s_img">
-              <image src="{{imgs[index]}}" lazy-load mode="aspectFill"></image>
-            </view>
-            <view class="s_details">
-              <view>{{item.game_describe}}啊实打实大撒大所大所多撒奥所大所大所多撒多撒撒大撒大</view>
-              <text></text>
-              <view>角色名：给我五杀{{item.game_number}}</view>
-              <view>
-                <text>{{item.game_server}}英雄联盟/电信/巨神峰</text>
+   <block wx:for="{{accountover}}" wx:key="item.game_id" class="list_item">
+    <view class="index {{i==4?'':'ifyblock'}}">
+      <view class="id">
+        <text>编号:107613351</text>
+        <text>进行中</text>
+      </view>
+      <!-- 订单账号信息 -->
+      <view>
+        <view class="select">
+            <view data-game_id="{{item.game_id}}" bindtap="detail">
+              <view class="s_img">
+                <image src="{{imgs[index]}}" lazy-load mode="aspectFill"></image>
+              </view>
+              <view class="s_details">
+                <view>{{item.game_describe}}</view>
+                <text></text>
+                <view>{{nameover[index].game_name}}</view>
+                <view>
+                  <text>{{item.game_server}}</text>
+                </view>
+              </view>
+              <view class="s_price">
+                <view>￥{{item.game_prices}}</view>
+                <text>/小时</text>
+                <view>
+                  <text>商</text>
+                  <text>陪</text>
+                  <text>顶</text>
+                </view>
               </view>
             </view>
-            <view class="s_price">
-              <view>￥1.00{{item.game_prices}}</view>
-              <text>/小时</text>
-              <view>
-                <text>商</text>
-                <text>陪</text>
-                <text>顶</text>
-              </view>
-            </view>
-          </view>
-        <!-- </block> -->
+          
+        </view>
+      </view>
+      <!-- 解锁码及评价 -->
+      <view class="appraise">
+          解锁码:
+          <text>b0cefe517f366e611937724</text>
+          <button>复制</button>
+          <button>评价</button>
       </view>
     </view>
-    <!-- 解锁码及评价 -->
-    <view class="appraise">
-        解锁码:
-        <text>b0cefe517f366e611937724</text>
-        <button>复制</button>
-        <button>评价</button>
-    </view>
-  </view>
+  </block>
 </view>

@@ -16,4 +16,3 @@
 <view class="video">
   <video src="http://192.168.43.77:1997/video/1539860980851306f48a1a955d.mp4_last.mp4" autoplay loop='true' controls=''></video>
 </view>
-<button open-type="share">分享</button>

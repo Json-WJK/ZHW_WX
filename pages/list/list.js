@@ -1,5 +1,5 @@
 // pages/list/list.js
-const app=getApp
+const app=getApp()
 Page({
 
 
@@ -13,14 +13,68 @@ Page({
    */
   data: {
     ify:["全部","正常","预约","投诉","完成","撤单"],
-    i:0,
+    i:0,//顶部点击下标
+    account:null,//账号详细信息
+    duration:null,//账号下单信息
+    name:null,//账号名称
+    imgs:null,//账号图片
+    accountover:null,//已完成账号详细信息
+    nameover:null,//已完成账号名称
+    imgsover:null,//已完成账号图片
   },
 
+
+
+  /*查询当前用户的订单情况 */
+  lists() {
+    var uname = app.globalData.uname
+    wx.request({
+      url: "http://192.168.43.77:1997/user/lease",
+      data: { uname },
+      method: "post",
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success: res => {
+        var name=res.data.name
+        var account = res.data.account
+        var duration = res.data.duration
+        var imgs = res.data.account.game_overall_img
+        var box = [] //图片容器
+        for (var img of res.data.account){//更改图片域名
+          box.push("http://192.168.43.77:1997" + img.game_overall_img.slice(21))
+        }
+        imgs = box
+        this.setData({name,account,duration,imgs})
+        console.log(res.data)
+      }
+    })
+    //已完成订单
+    wx.request({
+      url: "http://192.168.43.77:1997/user/often",
+      data: { uname },
+      method: "post",
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success: res => {
+        var nameover=res.data.name
+        var accountover = res.data.account
+        var imgsover = res.data.account.game_overall_img
+        var box = [] //图片容器
+        for (var img of res.data.account){//更改图片域名
+          box.push("http://192.168.43.77:1997" + img.game_overall_img.slice(21))
+        }
+        imgsover = box
+        this.setData({nameover,accountover,imgsover})
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.lists()
   },
 
   /**
@@ -44,11 +98,11 @@ Page({
 
   },
 
+  
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
   },
 
   /**

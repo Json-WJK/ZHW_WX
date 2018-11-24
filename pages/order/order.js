@@ -1,13 +1,16 @@
 // pages/order/order.js
+const app=getApp()
 Page({
   /*同意协议 */
   agree(){
     this.setData({isagree:!this.data.isagree})
   },
+  /*切换套餐 租号方式 */
   switch(e){
     var i = e.target.dataset.index
     this.setData({ ifyon: i })
-    if(i==0){
+    /*如果点击为时租  重新调用计算函数 */
+    if(i==0){ 
       this.countnum()
       return
     }
@@ -46,14 +49,127 @@ Page({
     var num = (parseFloat(price) + parseFloat(this.data.list.hire)).toFixed(2);
     this.setData({ price,num})
   },
+
+
+  //密码取消按钮  
+  qx() {
+    this.setData({
+      hiddenmodalput: true
+    });
+  },
+  //密码确认  
+  qr() {
+     /*在这里做模拟验证如果输入123456则为正确 */
+    if (this.data.val !=123456)
+    wx.showToast({
+      title: '密码错误',
+      icon: "none"
+    })
+    else if(this.data.val ==123456){
+    this.setData({
+      password:true,    //更改密码验证为成功
+      hiddenmodalput: true    //隐藏密码框
+    })
+    // 调用租用事件
+    this.affirm()
+    }
+  },
+  //密码框输入的密码   键盘敲击事件
+  passwordval(e){
+    var val = e.detail.value
+    this.setData({val})
+  },
   /*确认下单 */
   affirm(){
+   //同意协议
     if(!this.data.isagree){
       wx.showToast({
         title:"请同意租号玩协议",
         icon:"none"
       })
+      return
     }
+    //验证密码 如果密码验证为fasle则弹出密码框
+    if(!this.data.password){
+      this.setData({ hiddenmodalput: false})
+      return
+    }
+    /*以上为过滤 */
+    var uname = app.globalData.uname
+    console.log(uname)
+    if (uname)
+    wx.request({
+      url: 'http://192.168.43.77:1997/user/data',
+      data: {uname},
+      method: 'post',
+      header: {
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      success: res=> {
+        var down = res.data[0].balance - this.data.num
+        if(down<0)
+        wx.showModal({//余额不足
+          title: '提示',
+          content: '您的钱包空了哦！',
+          showCancel: false,
+        })
+        else if (down>=0){//余额充足
+        console.log(uname,down)
+          /*扣费 */
+        wx.request({
+          url: 'http://192.168.43.77:1997/order/fee',
+          data: { uname, down:this.data.num},
+          method:"post",
+          header:{
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          success:res=>{
+            
+          }
+        })
+          console.log(this.data.game_id)
+          var game_id = this.data.game_id //租用账号id
+          var duration=this.data.time   //租用时间
+          /*判定租用方式 */
+          if  (this.data.ifyon==1) duration=24
+          if (this.data.ifyon == 2) duration = 9
+          if (this.data.ifyon == 3) duration = 10
+          if (this.data.ifyon == 4) duration = 168
+          var DateTime=null
+          var myDate = new Date();
+          var year = myDate.getFullYear();//年
+          var month = myDate.getMonth() + 1;//月
+          var date = myDate.getDate();//日
+          var hour = myDate.getHours();//时
+          var minute = myDate.getMinutes();//分
+          var second = myDate.getSeconds();//秒
+          DateTime = year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+        wx.request({//将订单信息添加数据库
+          url: 'http://192.168.43.77:1997/order/add',
+          data: { uname,game_id,duration,DateTime},
+          method: "post",
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          success: res => {
+            wx.showLoading({
+              title: '支付中...',
+              duration:1500
+            })
+            setTimeout(()=>{
+              wx.reLaunch({
+                url: '/pages/home/home',
+              })
+              wx.showToast({
+                title: '下单成功',
+              })
+            },1500)
+            
+          }
+        })
+        }
+      }
+    })
   },
   /**
    * 页面的初始数据
@@ -70,6 +186,9 @@ Page({
     game_id: "",
     price:0,//租金
     num:0,//总价
+    hiddenmodalput:true,//密码输入框默认隐藏
+    val:"",//密码框输入的密码
+    password:false, //密码验证 默认不通过
   },
   order(game_id) {
     //详情
@@ -103,6 +222,7 @@ Page({
    */
   onLoad: function (options) {
     this.order(options.game_id)
+    this.setData({game_id:options.game_id})
   },
 
   /**

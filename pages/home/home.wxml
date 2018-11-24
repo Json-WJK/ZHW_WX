@@ -45,7 +45,7 @@
     </view>
     <view>
       <view>
-        <blcok wx:for="{{hot_img}}" wx:key="item">
+        <blcok wx:for="{{hot_img}}" wx:key="item" data-family="{{hots[index].game_family_id}}" bindtap="toselect">
           <view class="relative">
             <image src="{{item}}" lazy-load mode="aspectFill"></image> 
             <text>{{hot_name[index]}}</text> 

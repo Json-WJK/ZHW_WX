@@ -212,3 +212,7 @@
 .ify_none{
   display: none;
 }
+/*支付密码框*/
+.password{
+  text-align: center;
+}

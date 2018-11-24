@@ -29,7 +29,6 @@ Page({
         }
         res.data.unshift(kwords);
         text=res.data
-        console.log(text)
     /*修改 */
         wx.setStorage({
           key: 'seek',
@@ -117,9 +116,11 @@ Page({
   },
   /* 接收参数并前往商品详情页*/
   detail(event){
+    console.log(event.currentTarget.dataset.game_id)
     wx.request({
       url: 'http://192.168.43.77:1997/search/app_isexist?game_id=' +event.currentTarget.dataset.game_id,
       success:(res)=>{
+        /*如果当前搜索历史记录正在显示 将执行隐藏并结束函数 */
         if (this.data.ishistory) return
         if(res.data.res==0){
           wx.showToast({
