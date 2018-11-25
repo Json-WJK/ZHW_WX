@@ -46,7 +46,7 @@
           解锁码:
           <text>b0cefe517f366e611937724</text>
           <button>复制</button>
-          <button>评价</button>
+          <button bindtap="comment" data-game_id="{{item.game_id}}">评价</button>
       </view>
     </view>
   </block>
@@ -63,7 +63,7 @@
         <view class="select">
             <view data-game_id="{{item.game_id}}" bindtap="detail">
               <view class="s_img">
-                <image src="{{imgs[index]}}" lazy-load mode="aspectFill"></image>
+                <image src="{{imgsover[index]}}" lazy-load mode="aspectFill"></image>
               </view>
               <view class="s_details">
                 <view>{{item.game_describe}}</view>

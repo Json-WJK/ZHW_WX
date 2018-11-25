@@ -1,0 +1,41 @@
+<!--pages/collect/collect.wxml-->
+<block wx:for="{{select}}" wx:key="item.game_id">
+  <view class="id">
+    <text>编号：273344</text>
+    <text>正常</text>
+  </view>
+  <view class="select">
+      <view data-game_id="{{item.game_id}}" bindtap="detail">
+        <view class="s_img">
+          <image src="{{imgs[index]}}" lazy-load mode="aspectFill"></image>
+        </view>
+        <view class="s_details">
+          <view>{{item.game_describe}}</view>
+          <text>{{item.game_starting}}小时起租</text><text>押金5.00元</text>
+          <view>{{item.game_number}}次交易共36小时</view>
+          <view>
+            <text>{{item.game_server}}</text>
+          </view>
+        </view>
+        <view class="s_price">
+          <view>￥{{item.game_prices}}</view>
+          <text>/小时</text>
+          <view>
+            <text>商</text>
+            <text>陪</text>
+            <text>顶</text>
+          </view>
+        </view>
+      </view>
+  </view>
+  <view class="delete">
+    <view>
+      <text>可租时段：</text>
+      <text>0:00-24:00</text>
+    </view>
+    <button>删除</button>
+  </view>
+  <view class="parting">
+    <!-- 分割线 -->
+  </view>
+</block>

@@ -1,0 +1,41 @@
+/* pages/comment/comment.wxss */
+.comment{
+  color:#333;
+  font-size: 14px;  
+  position: fixed;
+  padding:0 20rpx;
+  background:#fff;
+  height:100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+.input{
+  background:#fff;
+  width:100%;
+  margin: 30rpx auto;
+  border:1px solid #eee;
+  border-radius: 5px;
+  padding:10rpx;
+  box-sizing: border-box;
+}
+.bottom{
+  display: flex;
+}
+.bottom>view{
+  width:50%;
+}
+.bottom>view:nth-child(2){
+  text-align: right;
+}
+.wjx>image{
+  /*评星*/
+  width:30rpx;
+  height:30rpx;
+  margin-left:30rpx;
+}
+button{
+  width:90%;
+  margin:50rpx auto;
+  color:#fff;
+  background:linear-gradient(to right,#FF832A,rgb(236, 62, 9));
+}

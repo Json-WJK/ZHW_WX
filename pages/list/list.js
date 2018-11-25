@@ -8,11 +8,35 @@ Page({
     var i = event.currentTarget.dataset.i
     this.setData({i})
   },
+  detail(event) {
+    console.log(event.currentTarget.dataset.game_id)
+    wx.request({
+      url: 'http://192.168.43.77:1997/search/app_isexist?game_id=' + event.currentTarget.dataset.game_id,
+      success: (res) => {
+        /*如果当前搜索历史记录正在显示 将执行隐藏并结束函数 */
+        if (this.data.ishistory) return
+        if (res.data.res == 0) {
+          wx.showToast({
+            title: '我还没有信息哦！',
+            icon: "none"
+          })
+          return
+        }
+        wx.navigateTo({ url: "/pages/detail/detail?game_id=" + event.currentTarget.dataset.game_id })
+      }
+    })
+
+  },
+  comment(e){//评论
+    wx.navigateTo({
+      url: '/pages/comment/comment?game_id='+e.target.dataset.game_id,
+    })
+  },
   /**
    * 页面的初始数据
    */
   data: {
-    ify:["全部","正常","预约","投诉","完成","撤单"],
+    ify:["进行中","正常","预约","投诉","记录","撤单"],
     i:0,//顶部点击下标
     account:null,//账号详细信息
     duration:null,//账号下单信息

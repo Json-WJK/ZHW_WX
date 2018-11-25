@@ -167,6 +167,18 @@ Page({
             
           }
         })
+        console.log()
+        wx.request({   //将该账号添加至记录
+          url: 'http://192.168.43.77:1997/order/often',
+          data: { uname, game_id },
+          method: "post",
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          success: res => {
+            console.log(res.data)
+          }
+        })
         }
       }
     })

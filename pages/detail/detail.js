@@ -1,4 +1,5 @@
 // pages/detail/detail.js
+const app=getApp()
 Page({
   // 点击展开
   unfold(){
@@ -16,6 +17,36 @@ Page({
       confirmColor:"#ffca00"
     })
   },
+  collect(){//收藏
+    if(this.data.iscollect){
+      wx.showModal({
+        title: '提示',
+        content: '已经收藏过了哦！',
+        showCancel: false,
+        confirmColor: "#ffca00"
+      })
+      return
+    }
+    
+    var game_id=this.data.game_id;
+    var uname=app.globalData.uname
+    wx.request({
+      url: 'http://192.168.43.77:1997/user/enshrines',
+      data:{uname,game_id},
+      method:"post",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success:res=>{
+        if(res.data)
+        wx.showModal({
+          title: '提示',
+          content: '收藏成功',
+          showCancel: false,
+        })
+      }
+    })
+  },
   /**
    * 页面的初始数据
    */
@@ -27,6 +58,9 @@ Page({
     isunfold:false,//展开
     game_id:"",
     ismay:true,//是否可租  默认不可租
+    iscollect:false,//是否收藏
+    comment:null,//评论
+    for:[1,2,3,4,5],//控制星星显示变量
   },
   /*  查询当前账号信息，，，，，是否可租 */
   detail(game_id){
@@ -75,11 +109,36 @@ Page({
             success:(res)=>{
             }
           })
+          var uname = app.globalData.uname
         }
-        console.log(this.data.ismay)
       },
       fail(res) {
         console.log(res)
+      }
+    })
+    /*是否收藏 */
+    var uname = app.globalData.uname
+    wx.request({
+      url: 'http://192.168.43.77:1997/detail/isenshrines',
+      data:{game_id,uname},
+      method:"post",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success:res=>{
+        console.log(res.data)
+        if(res.data)
+        this.setData({iscollect:true})
+        console.log(this.data.iscollect)
+      }
+    })
+
+    /*评论 */
+    wx.request({
+      url: 'http://192.168.43.77:1997/detail/comment?game_id='+game_id,
+      success:res=>{
+        this.setData({comment:res.data})
+        console.log(res.data)
       }
     })
   },

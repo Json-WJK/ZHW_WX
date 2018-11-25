@@ -73,9 +73,9 @@
   <view class="parting"></view>
   <!-- 租客评价 -->
   <view  class="appraises">
-    <view>租客评价（1）</view>
+    <view>租客评价（{{comment.length}}）</view>
     <!-- 由此处循环 -->
-    <view class="appraise">
+    <!-- <view class="appraise">
       <view class="appraise_user">
         <image src="http://192.168.43.77:1997/app/default1.png"></image>
         <view>
@@ -86,15 +86,33 @@
       <view class="content">
         6666666666666666666666666666666666
       </view>
+    </view> -->
+    <view class="appraise" wx:for="{{comment}}" wx:key="{{item.comment_id}}">
+      <view class="appraise_user">
+        <image src="http://192.168.43.77:1997/app/default1.png"></image>
+        <view>
+          <view>{{item.uname}}</view>
+          <view>
+            <image src="{{item.grade>0?'http://192.168.43.77:1997/app/评分a.png':'http://192.168.43.77:1997/app/评分b.png'}}" class="wjx"></image>
+            <image src="{{item.grade>1?'http://192.168.43.77:1997/app/评分a.png':'http://192.168.43.77:1997/app/评分b.png'}}" class="wjx"></image>
+            <image src="{{item.grade>2?'http://192.168.43.77:1997/app/评分a.png':'http://192.168.43.77:1997/app/评分b.png'}}" class="wjx"></image>
+            <image src="{{item.grade>3?'http://192.168.43.77:1997/app/评分a.png':'http://192.168.43.77:1997/app/评分b.png'}}" class="wjx"></image>
+            <image src="{{item.grade>4?'http://192.168.43.77:1997/app/评分a.png':'http://192.168.43.77:1997/app/评分b.png'}}" class="wjx"></image>
+          </view>
+        </view>
+      </view>
+      <view class="content">
+        {{item.content}}
+      </view>
     </view>
     <button class="all">查看全部</button>
   </view>
   
   <!-- 底部收藏与下单 -->
   <view class="d_bottom">
-    <view class="collect">
-      <image src="http://192.168.43.77:1997/app/icon_collection.png"></image>
-      <text>收藏</text>
+    <view class="collect" bindtap='collect'>
+      <image src="{{iscollect?'http://192.168.43.77:1997/app/已收藏.png':'http://192.168.43.77:1997/app/收藏.png'}}"></image>
+      <text>{{iscollect?"已收藏":"收藏"}}</text>
     </view>
     <button class="share" open-type="share">分享给好友</button>
     <view class="order {{ismay?'':'nomay'}}" bindtap="order">{{ismay?'我要租':'账号出租中'}}</view>

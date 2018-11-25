@@ -1,0 +1,12 @@
+<!--pages/comment/comment.wxml-->
+<view class="comment">
+  <view>填写评价</view>
+  <textarea class="input" placeholder="您的建议至关重要，来点评一下吧！" bindinput='vals'/>
+  <view class="bottom">
+    <view>描述相符</view>
+    <view class="wjx">
+      <image wx:for="{{for}}" wx:key="{{item}}" src="{{grade>index?'http://192.168.43.77:1997/app/评分a.png':'http://192.168.43.77:1997/app/评分b.png'}}" bindtap="wjx" data-wjx="{{item}}"></image>
+    </view>
+  </view>
+  <button bindtap="button">提交评价</button>
+</view>

@@ -24,3 +24,17 @@ text{
   width:100%;
   background:rgb(245,245,245);
 }
+/*右侧小箭头*/
+.arrow{  
+  display: flex;  
+  justify-content:space-between;  
+  align-items: center;
+  }
+.arrow::after{  
+  content:"";  
+  width: 15rpx; 
+  height: 15rpx; 
+  border-top:3rpx solid #ccc; 
+  border-right: 3rpx solid #ccc;  
+  transform: rotate(45deg)
+}

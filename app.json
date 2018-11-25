@@ -1,13 +1,17 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/collect/collect",
+    "pages/TopUp/TopUp",
     "pages/detail/detail",
     "pages/list/list",
-    "pages/user/user",
     "pages/logs/logs",
     "pages/index/index",
     "pages/select/select",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/user/user",
+    "pages/circle/circle",
+    "pages/comment/comment"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,8 +37,8 @@
         "selectedIconPath": "pages/tabBer/lease_1.png"
       },
       {
-        "pagePath": "pages/list/list",
-        "text": "订单",
+        "pagePath": "pages/circle/circle",
+        "text": "视频",
         "iconPath": "pages/tabBer/app_0.png",
         "selectedIconPath": "pages/tabBer/app_1.png"
       },

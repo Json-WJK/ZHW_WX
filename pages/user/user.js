@@ -1,18 +1,54 @@
 // pages/user/user.js
 const app = getApp()
 Page({
-
+  uptop(){//充值
+    wx.navigateTo({url:"/pages/TopUp/TopUp"})
+  },
+  lito(e){//跳转
+    if(e.currentTarget.dataset.text==this.data.lis.text[0])
+    wx.navigateTo({
+      url: '/pages/list/list',
+    })
+    else if (e.currentTarget.dataset.text == this.data.lis.text[1])
+    wx.navigateTo({
+      url:'/pages/collect/collect'
+    })
+    else
+    wx.showToast({
+      title: '什么也没有，不要点啦！',
+      icon:"none"
+    })
+  },
   /**
    * 页面的初始数据
    */
   data: {
     src:"",//视频
-
     /*用户头像 */
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    
+    /*用户信息ul */
+    lis:{
+      img:
+      [
+      "http://192.168.43.77:1997/app/icon_order.png",
+      "http://192.168.43.77:1997/app/icon_collection.png",
+      "http://192.168.43.77:1997/app/icon_redbags.png",
+      "http://192.168.43.77:1997/app/icon_free.png",
+      ],
+      text:
+      [
+        "我的租号订单",
+        "我收藏的账号",
+        "我的红包",
+        "免费体验"
+      ]
+      
+    },
+    user:null,//用户信息
   },
   /* */
   selectVideo(){
@@ -33,10 +69,26 @@ Page({
       url: '../logs/logs'
     })
   },
+  /*获取用余额与冻结资金 */
+  getfund() {
+    var uname = app.globalData.uname
+    wx.request({
+      url: "http://192.168.43.77:1997/user/data",
+      data: { uname },
+      method: "post",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: res => {
+        this.setData({user:res.data})
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    this.getfund()//调用用户信息函数
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -63,7 +115,7 @@ Page({
         }
       })
     }
-  },
+  },//微信用户方法
   getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo

@@ -1,0 +1,63 @@
+/* pages/TopUp/TopUp.wxss */
+.up{
+  background:#fff;
+  color:#333;
+  height:100%;
+  width:100%;
+  position: fixed;
+}
+.up>view:nth-child(1){
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+  width:90%;
+  margin:0 auto;
+}
+.up>view:nth-child(1)>view{
+  width:30%;
+  border:1px solid #eee;
+  border-radius:5px;
+  text-align:center;
+  height:100rpx;
+  line-height:100rpx;
+  margin-bottom:20rpx;
+}
+.up>view:nth-child(2){
+  display: flex;
+  height:100rpx;
+  justify-content: space-between;
+  align-items: center;
+}
+.up>view:nth-child(2){
+  display: flex;
+  height:100rpx;
+  justify-content: space-between;
+  align-items: center;
+  font-size:15px;
+  border:1px solid #eee;
+  width:90%;
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-bottom:20rpx;
+}
+.up>view:nth-child(2)>text{
+  width:25%;
+  text-align: right;
+}
+.up>view:nth-child(2)>input{
+  width:75%;
+  color:#ff6666;
+}
+
+.up>button{
+  background:#00B26A;
+  width:90%;
+  margin:0 auto;
+  color:#fff;
+}
+
+/*点击价格切换样式*/
+.switch{
+  background:#00B26A;
+  color:#fff;
+}

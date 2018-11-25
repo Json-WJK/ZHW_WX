@@ -1,18 +1,42 @@
 <!--pages/user/user.wxml-->
 <!--index.wxml-->
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="user">
+<!-- 用户头像 -->
+  <view class="img">
+    <view class="userinfo">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">  </button>
+      <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="funds">
+    <view class="fund">
+      <view>
+        <view>{{user[0].balance}}</view>
+        <view>可用余额</view>
+      </view>
+      <view>
+        <view>{{user[0].freeze}}</view>
+        <view>冻结资金</view>
+      </view>
+    </view>
+    <view class="uptop">
+      <button bindtap="uptop">充值</button>
+    </view>
   </view>
+</view>
 
-
-
+<!-- 红包 免费体验 ul -->
+<view class="ulfell">
+  <view class="lifell" wx:for="{{lis.img}}" wx:key="{{item}}" data-text="{{lis.text[index]}}" bindtap="lito">
+    <image class="li_l" src="{{item}}"></image>
+    <text class="li_t">{{lis.text[index]}}</text>
+    <text class="li_r"></text>
+  </view>
+</view>
+<!-- 
 <view class="video">
   <video src="http://192.168.43.77:1997/video/1539860980851306f48a1a955d.mp4_last.mp4" autoplay loop='true' controls=''></video>
-</view>
+</view> -->
