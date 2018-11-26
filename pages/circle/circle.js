@@ -5,14 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    video:null,
   },
-
+  all(){
+    wx.request({
+      url: 'http://192.168.43.77:1997/video/all',
+      success:res=>{
+        this.setData({video:res.data})
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.all()
   },
 
   /**

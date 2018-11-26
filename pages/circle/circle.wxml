@@ -1,2 +1,22 @@
 <!--pages/circle/circle.wxml-->
-<text>pages/circle/circle.wxml</text>
+<view class="circle">
+  <view class="for" wx:for="{{video}}" wx:key="{{item.video_id}}">
+    <view class="user">
+      <image src="http://192.168.43.77:1997/app/default1.png" class="avatar"></image>
+      <view>
+        <view>游戏君</view>
+        <view>2天前</view>
+      </view>
+    </view>
+    <view class="content">{{item.content}}</view>
+    <view class="ify">{{item.ify}}</view>
+    <view class="video">
+      <video src='{{"http://192.168.43.77:1997/video/"+item.video_url}}'></video>
+    </view>
+    <view class="parting"></view>
+  </view>
+  <image src="http://192.168.43.77:1997/app/发表.png" class="up"></image>
+  <view class="bottom">
+    ----------没有了哦，赶紧上传吧----------
+  </view>
+</view>

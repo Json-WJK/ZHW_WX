@@ -55,6 +55,6 @@
   
 
 <modal hidden="{{hiddenmodalput}}" title="支付密码" confirm-text="确定" cancel-text="取消" bindcancel="qx" bindconfirm="qr">  
-    <input class="password" bindinput="passwordval" type='text'placeholder="请输入支付密码" auto-focus maxlength='6'/>  
+    <input class="password" bindinput="passwordval" type='text'placeholder="请输入支付密码"  maxlength='6'/>  
 </modal>
 </view>

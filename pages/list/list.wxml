@@ -91,7 +91,7 @@
           解锁码:
           <text>b0cefe517f366e611937724</text>
           <button>复制</button>
-          <button>评价</button>
+          <button bindtap="comment" data-game_id="{{item.game_id}}">评价</button>
       </view>
     </view>
   </block>

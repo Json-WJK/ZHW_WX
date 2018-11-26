@@ -41,7 +41,7 @@ Page({
     setTimeout(() => {
       this.setData({ historys: text })
     }, 500)
-    
+    /*搜索 */
     wx.request({
       url: "http://192.168.43.77:1997/search/app_seek?kwords=" + kwords,
       success:(res)=>{

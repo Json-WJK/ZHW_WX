@@ -61,6 +61,7 @@ Page({
       },
       success: res => {
         var name=res.data.name
+        console.log(res.data)
         var account = res.data.account
         var duration = res.data.duration
         var imgs = res.data.account.game_overall_img

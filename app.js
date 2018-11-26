@@ -17,7 +17,7 @@ App({
             data: { code },
             success:res => {
               this.globalData.uname = res.data.uname
-              console.log(this.globalData.uname)
+              // console.log(this.globalData.uname)
               var uname=this.globalData.uname
               wx.request({
                 url:"http://192.168.43.77:1997/user/verify",

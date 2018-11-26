@@ -7,6 +7,5 @@
     <text>充值金额：</text>
     <input type="number" placeholder="请输入充值金额" bindinput='vals' value="{{val}}"></input>
   </view>
-  
   <button bindtap="up">立即充值</button>
 </view>

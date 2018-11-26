@@ -26,8 +26,7 @@
   padding:10rpx 20rpx;
   background: #fff;
   width:95%;
-  margin: 0 auto;
-  margin-bottom:20rpx;
+  margin:20rpx auto;
 }
 /*右侧余额*/
 .funds{

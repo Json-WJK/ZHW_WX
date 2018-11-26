@@ -42,19 +42,16 @@
   font-size:13px;
 }
 
-
-
 .select{
   height:230rpx;
   font-size:14px;
-  margin-bottom:10rpx;
+  margin-bottom:30rpx;
 }
 .select>view{
   display:flex;
   justify-content:space-around;
   height:100%;
   padding:15rpx 10rpx;
-  border-bottom:1px solid #eee;
   background:#fff;
 }
 /*图片*/

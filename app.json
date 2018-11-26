@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/circle/circle",
     "pages/home/home",
     "pages/collect/collect",
     "pages/TopUp/TopUp",
@@ -10,7 +11,6 @@
     "pages/select/select",
     "pages/order/order",
     "pages/user/user",
-    "pages/circle/circle",
     "pages/comment/comment"
   ],
   "window": {
@@ -38,7 +38,7 @@
       },
       {
         "pagePath": "pages/circle/circle",
-        "text": "视频",
+        "text": "游戏圈",
         "iconPath": "pages/tabBer/app_0.png",
         "selectedIconPath": "pages/tabBer/app_1.png"
       },

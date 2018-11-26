@@ -1,1 +1,74 @@
 /* pages/circle/circle.wxss */
+.circle{
+  font-size:14px;
+  color:#333;
+}
+
+
+.parting{
+  margin-top:20rpx;
+}
+.for{
+  background: #fff;
+}
+.user{
+  display: flex;
+  padding:0 20rpx;
+  padding-top:20rpx;
+}
+.avatar{
+  width:80rpx;
+  height:80rpx;
+  vertical-align: middle;
+}
+.user>view:nth-child(2){
+  line-height:40rpx;
+  margin-left:30rpx;
+  font-weight: bold;
+  padding:0 20rpx;
+}
+.user>view:nth-child(2)>view:nth-child(2){
+  font-size:13px;
+  font-weight:normal;
+}
+
+.content{
+  font-size:15px;
+  color:#000;
+  margin-top: 20rpx;
+  padding:0 20rpx;
+  font-weight: bold;
+}
+.ify{
+  display: inline-block;
+  background: #eee;
+  color:#007ACC;
+  text-align: center;
+  padding:5rpx 10rpx;
+  font-size:12px;
+  border-radius:10px;
+  margin: 20rpx 20rpx;
+}
+
+.video{
+  padding:0 20rpx;
+}
+.video>video{
+  height:400rpx;
+  width:100%;
+}
+
+/*底部*/
+.bottom{
+  text-align:center;
+  color:#555;
+}
+
+/*上传*/
+.up{
+  width:70rpx;
+  height:60rpx;
+  position:fixed;
+  bottom:50rpx;
+  right:30rpx;
+}
