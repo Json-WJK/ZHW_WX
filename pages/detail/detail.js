@@ -44,6 +44,21 @@ Page({
           content: '收藏成功',
           showCancel: false,
         })
+        /*再次判断是否收藏 */
+        wx.request({
+          url: 'http://192.168.43.77:1997/detail/isenshrines',
+          data: { game_id, uname },
+          method: "post",
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          success: res => {
+            console.log(res.data)
+            if (res.data)
+              this.setData({ iscollect: true })
+            console.log(this.data.iscollect)
+          }
+        })
       }
     })
   },

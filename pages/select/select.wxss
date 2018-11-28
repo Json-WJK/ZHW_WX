@@ -11,7 +11,7 @@
 .relative{
   position: relative;
 }
-/*搜索历史记录*/
+/*搜索历史记录*/  
 .history{
   visibility: visible;
   font-size:13px;

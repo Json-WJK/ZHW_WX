@@ -1,13 +1,36 @@
 // pages/collect/collect.js
 const app=getApp()
 Page({
+  /*删除收藏 */
+  delete(e){
+    var uname=app.globalData.uname
+    var game_id=e.target.dataset.game_id
+    wx.request({
+      url: 'http://192.168.43.77:1997/user/d_enshrines',
+      data:{uname,game_id},
+      method:"post",
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success:res=>{
+        if(res.data)
+        wx.showModal({
+          title: '提示',
+          content: '已取消收藏',
+          showCancel: false,
+          success: res => {
+            if (res.confirm)
+            this.collect()
+          }
+        })
+      }
+    })
+  },
   detail(event) {
     console.log(event.currentTarget.dataset.game_id)
     wx.request({
       url: 'http://192.168.43.77:1997/search/app_isexist?game_id=' +    event.currentTarget.dataset.game_id,
       success: (res) => {
-        /*如果当前搜索历史记录正在显示 将执行隐藏并结束函数 */
-        if (this.data.ishistory) return
         if (res.data.res == 0) {
           wx.showToast({
             title: '我还没有信息哦！',

@@ -7,11 +7,7 @@ Page({
   lito(e){//跳转
     if(e.currentTarget.dataset.text==this.data.lis.text[0])
     wx.navigateTo({
-      url: '/pages/list/list',
-    })
-    else if (e.currentTarget.dataset.text == this.data.lis.text[1])
-    wx.navigateTo({
-      url:'/pages/collect/collect'
+      url: '/pages/collect/collect',
     })
     else
     wx.showToast({
@@ -34,14 +30,12 @@ Page({
     lis:{
       img:
       [
-      "http://192.168.43.77:1997/app/icon_order.png",
       "http://192.168.43.77:1997/app/icon_collection.png",
       "http://192.168.43.77:1997/app/icon_redbags.png",
       "http://192.168.43.77:1997/app/icon_free.png",
       ],
       text:
       [
-        "我的租号订单",
         "我收藏的账号",
         "我的红包",
         "免费体验"

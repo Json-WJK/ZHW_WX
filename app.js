@@ -17,8 +17,8 @@ App({
             data: { code },
             success:res => {
               this.globalData.uname = res.data.uname
-              // console.log(this.globalData.uname)
               var uname=this.globalData.uname
+              console.log(this.globalData.uname)
               wx.request({
                 url:"http://192.168.43.77:1997/user/verify",
                 data:{uname},
@@ -27,8 +27,8 @@ App({
                   "content-type": "application/x-www-form-urlencoded"
                 },
                 success:res=>{
+                  console.log(res.data)
                   if(!res.data)
-                    // console.log(res.data)
                   wx.request({
                     url: 'http://192.168.43.77:1997/user/app_register',
                     data:{uname},
@@ -37,7 +37,7 @@ App({
                       "content-type": "application/x-www-form-urlencoded"
                     },
                     success:res=>{
-                      console.log(res.data)
+                      // console.log(res.data)
                     }
                   })
                 }

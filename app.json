@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/circle/circle",
     "pages/home/home",
+    "pages/circle/circle",
     "pages/collect/collect",
     "pages/TopUp/TopUp",
     "pages/detail/detail",
@@ -37,8 +37,8 @@
         "selectedIconPath": "pages/tabBer/lease_1.png"
       },
       {
-        "pagePath": "pages/circle/circle",
-        "text": "游戏圈",
+        "pagePath": "pages/list/list",
+        "text": "订单",
         "iconPath": "pages/tabBer/app_0.png",
         "selectedIconPath": "pages/tabBer/app_1.png"
       },

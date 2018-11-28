@@ -33,7 +33,7 @@
       <text>可租时段：</text>
       <text>0:00-24:00</text>
     </view>
-    <button>删除</button>
+    <button bindtap="delete" data-game_id="{{item.game_id}}">删除</button>
   </view>
   <view class="parting">
     <!-- 分割线 -->
