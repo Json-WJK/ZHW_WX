@@ -40,7 +40,7 @@ Page({
             success:res=>{
               if(res.confirm)
               wx.switchTab({
-                url:"/pages/user/user"
+                url:"/pages/list/list"
               })
             }
           })

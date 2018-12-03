@@ -60,8 +60,9 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: res => {
-        var name=res.data.name
         console.log(res.data)
+        var name=res.data.name
+        // console.log(res.data)
         var account = res.data.account
         var duration = res.data.duration
         var imgs = res.data.account.game_overall_img
@@ -70,8 +71,11 @@ Page({
           box.push("http://192.168.43.77:1997" + img.game_overall_img.slice(21))
         }
         imgs = box
+        imgs = imgs.reverse()
+        name = name.reverse()
+        account = account.reverse()
+        duration = duration.reverse()
         this.setData({name,account,duration,imgs})
-        console.log(res.data)
       }
     })
     //已完成订单
@@ -83,6 +87,7 @@ Page({
         "content-type": "application/x-www-form-urlencoded"
       },
       success: res => {
+        console.log(res.data)
         var nameover=res.data.name
         var accountover = res.data.account
         var imgsover = res.data.account.game_overall_img
@@ -91,6 +96,9 @@ Page({
           box.push("http://192.168.43.77:1997" + img.game_overall_img.slice(21))
         }
         imgsover = box
+        imgsover = imgsover.reverse()
+        nameover = nameover.reverse()
+        accountover = accountover.reverse()
         this.setData({nameover,accountover,imgsover})
       }
     })

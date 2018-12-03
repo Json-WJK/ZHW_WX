@@ -56,7 +56,7 @@
     <view class="index {{i==4?'':'ifyblock'}}">
       <view class="id">
         <text>编号:107613351</text>
-        <text>进行中</text>
+        <text></text>
       </view>
       <!-- 订单账号信息 -->
       <view>

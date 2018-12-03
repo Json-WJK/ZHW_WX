@@ -62,6 +62,7 @@ Page({
       },
       success: (res) => {
         console.log(res.data)
+        res.data.account = res.data.account.reverse()
         this.setData({ select: res.data.account })
         var box = []//图片容器
         var imgs = [] //最终收集图片
